@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width">
+  <title>title</title>
+  <style>
+  .centerSqr {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+    background-color: #555;
+    display:block;
+}
+  .hide {
+    display: none;
+  }
+  .shop1 {
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+    background-color: yellow;
+    display:block;
+  }
+  </style>
+  <script>
+    var score=0;
+    var power=1;
+    function init(){
+    document.getElementById('score').innerHTML=0;
+    document.getElementById('init').className='hide';
+    document.getElementById('item').className='centerSqr';
+      document.getElementById('shop1').className='shop1';
+    }
+    function addPoints(){
+      score+=power;
+      document.getElementById('score').innerHTML=score;
+    }
+    function shop1(){
+      if (score>=10) {
+        power+=1;
+        score-=10;
+        document.getElementById('score').innerHTML=score;
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+  <button onclick='init()' id='init'>Start Game</button>
+  <p id='score' align=center></p>
+  <br>
+  <br>
+  <div align=center id='item' class='hide' onclick="addPoints()"></div>
+</body>
+  <div class='hide' id='shop1' text-align=center onclick='shop1()'></div>
+</html>
